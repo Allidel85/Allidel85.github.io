@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    #supes {
+        display: none
+    }
+    #cap {
+        display: none
+    }
+</style>
+</head>
+<body>
+<button onclick="counter()">Click Me!</button>
+<script>
+    let ans = 0;
+    function counter() {
+        document.getElementById("supes").style.display = "none";
+        document.getElementById("cap").style.display = "none";
+        ans += 1
+        if (ans % 2 == 0) {
+        let h = document.createTextNode("You are clicker number " + ans + "! SUPERMAN!");
+        let t = document.createElement("p");
+        t.setAttribute("id", "one");
+        t.appendChild(h);
+        document.body.appendChild(t);
+        document.getElementById("supes").style.display = "block";
+        } else {
+            let h = document.createTextNode("You are clicker number " + ans + "! CAPTAIN AMERICA!");
+            let t = document.createElement("p");
+            t.setAttribute("id", "one");
+            t.appendChild(h);
+            document.body.appendChild(t);
+            document.getElementById("cap").style.display = "block";
+        }
+    }
+</script>
+<img id="supes" src="https://upload.wikimedia.org/wikipedia/en/3/35/Supermanflying.png">
+<img id="cap" src="https://www.ed92.org/wp-content/uploads/2021/06/captain-america-1-450x701.png">
+</body>
+</html>
+
