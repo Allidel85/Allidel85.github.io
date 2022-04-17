@@ -11,7 +11,8 @@
 </style>
 </head>
 <body>
-<button onclick="counter()">Click Me!</button>
+<button onclick="counter();">Click Me!</button>
+<p id="demo"></p>
 <script>
     let ans = 0;
     function counter() {
@@ -19,24 +20,19 @@
         document.getElementById("cap").style.display = "none";
         ans += 1
         if (ans % 2 == 0) {
-        let h = document.createTextNode("You are clicker number " + ans + "! SUPERMAN!");
-        let t = document.createElement("p");
-        t.setAttribute("id", "one");
-        t.appendChild(h);
-        document.body.appendChild(t);
+        document.getElementById("demo").innerHTML = "You are clicker number " + ans + "! Superman!";
         document.getElementById("supes").style.display = "block";
         } else {
-            let h = document.createTextNode("You are clicker number " + ans + "! CAPTAIN AMERICA!");
-            let t = document.createElement("p");
-            t.setAttribute("id", "one");
-            t.appendChild(h);
-            document.body.appendChild(t);
+            document.getElementById("demo").innerHTML = "You are clicker number " + ans + "! Captain America!";
             document.getElementById("cap").style.display = "block";
         }
+    function reloadPage() {
+        t.removeChild(h);;
     }
+    }
+    
 </script>
 <img id="supes" src="https://upload.wikimedia.org/wikipedia/en/3/35/Supermanflying.png">
 <img id="cap" src="https://www.ed92.org/wp-content/uploads/2021/06/captain-america-1-450x701.png">
 </body>
 </html>
-
