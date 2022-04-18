@@ -8,11 +8,29 @@
     #cap {
         display: none
     }
+    .button {
+        text-align: center; 
+    }
+    button {
+        background-color: lightblue;  
+        color :black;  
+        font-size: 25px; 
+        display: block;
+        margin: auto;
+    }
+    img {
+        max-width: 100%;
+        height: auto;
+    }
 </style>
 </head>
 <body>
+<div class="button">
 <button onclick="counter();">Click Me!</button>
 <p id="demo"></p>
+<img id="supes" src="https://upload.wikimedia.org/wikipedia/en/3/35/Supermanflying.png">
+<img id="cap" src="https://www.ed92.org/wp-content/uploads/2021/06/captain-america-1-450x701.png">
+</div>
 <script>
     let ans = 0;
     function counter() {
@@ -22,17 +40,16 @@
         if (ans % 2 == 0) {
         document.getElementById("demo").innerHTML = "You are clicker number " + ans + "! Superman!";
         document.getElementById("supes").style.display = "block";
+        document.getElementById("supes").style.margin = "auto";
         } else {
             document.getElementById("demo").innerHTML = "You are clicker number " + ans + "! Captain America!";
             document.getElementById("cap").style.display = "block";
+            document.getElementById("cap").style.margin = "auto";
         }
     function reloadPage() {
         t.removeChild(h);;
     }
-    }
-    
+    }  
 </script>
-<img id="supes" src="https://upload.wikimedia.org/wikipedia/en/3/35/Supermanflying.png">
-<img id="cap" src="https://www.ed92.org/wp-content/uploads/2021/06/captain-america-1-450x701.png">
 </body>
 </html>
