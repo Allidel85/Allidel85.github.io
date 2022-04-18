@@ -22,8 +22,11 @@
         outline: auto;
     }
     img {
-        max-width: 100%;
+        width: 200px;
         height: auto;
+    }
+    .coke {
+        position: relative;
     }
 </style>
 </head>
@@ -37,15 +40,16 @@
 <script>
     let ans = 0;
     function counter() {
+        dec = Math.floor((Math.random() * 2));
         document.getElementById("supes").style.display = "none";
         document.getElementById("cap").style.display = "none";
-        ans += 1
-        if (ans % 2 == 0) {
-        document.getElementById("demo").innerHTML = "You are clicker number " + ans + "! Superman!";
+        ans += 1;
+        if (dec == 0) {
+        document.getElementById("demo").innerHTML = "<span class = 'coke'>You are clicker number " + ans + "! <br> Superman"
         document.getElementById("supes").style.display = "block";
         document.getElementById("supes").style.margin = "auto";
         } else {
-            document.getElementById("demo").innerHTML = "You are clicker number " + ans + "! Captain America!";
+            document.getElementById("demo").innerHTML = "<span class = 'coke'>You are clicker number " + ans + "! <br> Captain America"
             document.getElementById("cap").style.display = "block";
             document.getElementById("cap").style.margin = "auto";
         }
