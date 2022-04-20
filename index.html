@@ -8,7 +8,7 @@
     #cap {
         display: none
     }
-    .button {
+    .stuff {
         text-align: center;
         font-size: 5vw;
     }
@@ -20,6 +20,13 @@
         margin: auto;
         border-radius: 5px;
         outline: auto;
+        cursor: pointer;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+
+    }
+    button:active {
+        transform: scale(0.98);
+        box-shadow: 0 8px 18px rgba(0,0,0,0.19), 0 4px 4px rgba(0,0,0,0.23);
     }
     img {
         width: 200px;
@@ -31,8 +38,8 @@
 </style>
 </head>
 <body>
-<div class="button">
-<button onclick="counter();">Click Me!</button>
+<div class="stuff">
+<button id ="the-button"onclick="counter();">Click Me!</button>
 <p id="demo"></p>
 <img id="supes" src="https://upload.wikimedia.org/wikipedia/en/3/35/Supermanflying.png">
 <img id="cap" src="https://www.ed92.org/wp-content/uploads/2021/06/captain-america-1-450x701.png">
@@ -53,9 +60,6 @@
             document.getElementById("cap").style.display = "block";
             document.getElementById("cap").style.margin = "auto";
         }
-    function reloadPage() {
-        t.removeChild(h);;
-    }
     }  
 </script>
 </body>
