@@ -2,24 +2,33 @@
 <html>
 <head>
 <style>
+    .images {
+        text-align: center;
+    }
     #supes {
-        display: none
+        display: none;
     }
     #cap {
-        display: none
+        display: none;
     }
-    .stuff {
+    #bats {
+        display: none;
+    }
+    #demo {
         text-align: center;
-        font-size: 5vw;
+    }
+    #demo2 {
+        position: fixed;
+        bottom: 90%;
     }
     button {
         background-color: lightblue;  
         color :black;  
-        font-size: 5vw; 
+        font-size: 3vw; 
         display: block;
         margin: auto;
-        border-radius: 10px;
-        border-color: black;
+        border-radius:10px;
+        border-color: black; 
         cursor: pointer;
         box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 
@@ -29,38 +38,50 @@
         box-shadow: 0 8px 18px rgba(0,0,0,0.19), 0 4px 4px rgba(0,0,0,0.23);
     }
     img {
-        width: 200px;
+        width: 150px;
         height: auto;
     }
     .coke {
         position: relative;
     }
 </style>
-</head>
-<body>
-<div class="stuff">
-<button id ="the-button"onclick="counter();">Click Me!</button>
-<p id="demo"></p>
-<img id="supes" src="https://upload.wikimedia.org/wikipedia/en/3/35/Supermanflying.png">
-<img id="cap" src="https://www.ed92.org/wp-content/uploads/2021/06/captain-america-1-450x701.png">
-</div>
 <script>
-    let ans = 0;
+    let myArray = ["supes", "cap", "bats"]
+    let [ans, supc, capc, batsc] = [0, 0, 0, 0];
     function counter() {
-        dec = Math.floor((Math.random() * 2));
+        let dec = myArray[Math.floor(Math.random()*myArray.length)];
         document.getElementById("supes").style.display = "none";
         document.getElementById("cap").style.display = "none";
+        document.getElementById("bats").style.display = "none";
         ans += 1;
-        if (dec == 0) {
-        document.getElementById("demo").innerHTML = "<span class = 'coke'>You are clicker number " + ans + "! <br> Superman"
+        if (dec == "supes") {
+        document.getElementById("demo").innerHTML = "<span class = 'coke'>You have clicked " + ans + " times!"
         document.getElementById("supes").style.display = "block";
         document.getElementById("supes").style.margin = "auto";
-        } else {
-            document.getElementById("demo").innerHTML = "<span class = 'coke'>You are clicker number " + ans + "! <br> Captain America"
+        supc += 1
+        } else if (dec === "cap") {
+            document.getElementById("demo").innerHTML = "<span class = 'coke'>You have clicked " + ans + " times!"
             document.getElementById("cap").style.display = "block";
             document.getElementById("cap").style.margin = "auto";
+            capc += 1
+        } else if (dec === "bats") {
+            document.getElementById("demo").innerHTML = "<span class = 'coke'>You have clicked " + ans + " times!"
+            document.getElementById("bats").style.display = "block";
+            document.getElementById("bats").style.margin = "auto";
+            batsc += 1
         }
-    }  
+        document.getElementById("demo2").innerHTML = "Superman = " + supc + " <br> Captain America = " + capc + " <br> Batman = " + batsc;
+    }
+</script>
+<body>
+<button id ="the-button"onclick="counter();">Click Me!</button>
+<p id="demo"></p>
+<div class="images">
+<img id="supes" src="https://upload.wikimedia.org/wikipedia/en/3/35/Supermanflying.png">
+<img id="cap" src="https://www.ed92.org/wp-content/uploads/2021/06/captain-america-1-450x701.png">
+<img id="bats" src="http://images.clipartpanda.com/batman-clipart-batman-cartoon-1.gif">
+</div>
+<p id="demo2"></p>
 </script>
 </body>
 </html>
