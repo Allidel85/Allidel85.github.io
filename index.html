@@ -18,10 +18,17 @@
         text-align: center;
     }
     #demo2 {
-        position: fixed;
+        position: absolute;
+        min-width: 600px;
+        max-width: 50%;
+        margin-right: auto;
         bottom: 90%;
+        left: 25%;
+        z-index: 0;
+        
     }
     button {
+        position: relative;
         background-color: lightblue;  
         color :black;  
         font-size: 3vw; 
@@ -31,6 +38,7 @@
         border-color: black; 
         cursor: pointer;
         box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+        z-index: 2;
 
     }
     button:active {
