@@ -14,6 +14,9 @@
     #bats {
         display: none;
     }
+    #iron {
+        display: none;
+    }
     #demo {
         text-align: center;
     }
@@ -22,7 +25,7 @@
         min-width: 600px;
         max-width: 50%;
         margin-right: auto;
-        bottom: 90%;
+        bottom: 80%;
         left: 25%;
         z-index: 0;
         
@@ -54,31 +57,37 @@
     }
 </style>
 <script>
-    let myArray = ["supes", "cap", "bats"]
-    let [ans, supc, capc, batsc] = [0, 0, 0, 0];
+    let myArray = ["supes", "cap", "bats", "iron"]
+    let [ans, supc, capc, batsc, ironc] = [0, 0, 0, 0, 0];
     function counter() {
         let dec = myArray[Math.floor(Math.random()*myArray.length)];
         document.getElementById("supes").style.display = "none";
         document.getElementById("cap").style.display = "none";
         document.getElementById("bats").style.display = "none";
+        document.getElementById("iron").style.display = "none";
         ans += 1;
         if (dec == "supes") {
         document.getElementById("demo").innerHTML = "<span class = 'coke'>You have clicked " + ans + " times!"
         document.getElementById("supes").style.display = "block";
         document.getElementById("supes").style.margin = "auto";
-        supc += 1
+        supc += 1;
         } else if (dec === "cap") {
             document.getElementById("demo").innerHTML = "<span class = 'coke'>You have clicked " + ans + " times!"
             document.getElementById("cap").style.display = "block";
             document.getElementById("cap").style.margin = "auto";
-            capc += 1
+            capc += 1;
         } else if (dec === "bats") {
             document.getElementById("demo").innerHTML = "<span class = 'coke'>You have clicked " + ans + " times!"
             document.getElementById("bats").style.display = "block";
             document.getElementById("bats").style.margin = "auto";
-            batsc += 1
+            batsc += 1;
+        } else if (dec === "iron") {
+            document.getElementById("demo").innerHTML = "<span class = 'coke'>You have clicked " + ans + " times!"
+            document.getElementById("iron").style.display = "block";
+            document.getElementById("iron").style.margin = "auto";
+            ironc += 1;
         }
-        document.getElementById("demo2").innerHTML = "Superman = " + supc + " <br> Captain America = " + capc + " <br> Batman = " + batsc;
+        document.getElementById("demo2").innerHTML = "Superman = " + supc + " <br> Captain America = " + capc + " <br> Batman = " + batsc + " <br> Ironman = " + ironc;
     }
 </script>
 <body>
@@ -88,6 +97,7 @@
 <img id="supes" src="https://upload.wikimedia.org/wikipedia/en/3/35/Supermanflying.png">
 <img id="cap" src="https://www.ed92.org/wp-content/uploads/2021/06/captain-america-1-450x701.png">
 <img id="bats" src="https://github.com/Allidel85/Allidel85.github.io/blob/main/bats.png?raw=true">
+<img id="iron" src="https://github.com/Allidel85/Allidel85.github.io/blob/main/iron%202.png?raw=true">
 </div>
 <p id="demo2"></p>
 </script>
