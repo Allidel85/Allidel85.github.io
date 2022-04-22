@@ -48,6 +48,16 @@
         transform: scale(0.98);
         box-shadow: 0 8px 18px rgba(0,0,0,0.19), 0 4px 4px rgba(0,0,0,0.23);
     }
+    button:hover {
+        animation-name: button-color;
+        animation-duration: 500ms;
+        animation-fill-mode: forwards;
+    }
+    @keyframes button-color {
+        100% {
+            background-color: red;
+        }
+    }
     img {
         width: 150px;
         height: auto;
