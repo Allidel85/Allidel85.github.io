@@ -71,47 +71,35 @@
 <script>
     let myArray = ["supes", "cap", "bats", "iron", "supeg", "capm"]
     let [ans, supc, capc, batsc, ironc, supegc, capmc] = [0, 0, 0, 0, 0, 0, 0];
+    let dec = "supes"
     function counter() {
-        let dec = myArray[Math.floor(Math.random()*myArray.length)];
-        document.getElementById("supes").style.display = "none";
-        document.getElementById("cap").style.display = "none";
-        document.getElementById("bats").style.display = "none";
-        document.getElementById("iron").style.display = "none";
-        document.getElementById("supeg").style.display = "none";
-        document.getElementById("capm").style.display = "none";
-        ans += 1;
+        hideHero(dec)
+        dec = myArray[Math.floor(Math.random()*myArray.length)];
+        heroDisplay(dec)
         if (dec == "supes") {
-        document.getElementById("demo").innerHTML = "<span class = 'coke'>You have clicked " + ans + " times!"
-        document.getElementById("supes").style.display = "block";
-        document.getElementById("supes").style.margin = "auto";
         supc += 1;
         } else if (dec === "cap") {
-            document.getElementById("demo").innerHTML = "<span class = 'coke'>You have clicked " + ans + " times!"
-            document.getElementById("cap").style.display = "block";
-            document.getElementById("cap").style.margin = "auto";
             capc += 1;
         } else if (dec === "bats") {
-            document.getElementById("demo").innerHTML = "<span class = 'coke'>You have clicked " + ans + " times!"
-            document.getElementById("bats").style.display = "block";
-            document.getElementById("bats").style.margin = "auto";
             batsc += 1;
         } else if (dec === "iron") {
-            document.getElementById("demo").innerHTML = "<span class = 'coke'>You have clicked " + ans + " times!"
-            document.getElementById("iron").style.display = "block";
-            document.getElementById("iron").style.margin = "auto";
             ironc += 1;
         } else if (dec === "supeg") {
-            document.getElementById("demo").innerHTML = "<span class = 'coke'>You have clicked " + ans + " times!"
-            document.getElementById("supeg").style.display = "block";
-            document.getElementById("supeg").style.margin = "auto";
             supegc += 1; 
         }else if (dec === "capm") {
-            document.getElementById("demo").innerHTML = "<span class = 'coke'>You have clicked " + ans + " times!"
-            document.getElementById("capm").style.display = "block";
-            document.getElementById("capm").style.margin = "auto";
             capmc += 1;
         }
         document.getElementById("demo2").innerHTML = "Superman = " + supc + " <br> Captain America = " + capc + " <br> Batman = " + batsc + " <br> Ironman = " + ironc + " <br> Supergirl = " + supegc + " <br> Captain Marvel = " + capmc;
+    }
+    function heroDisplay(id) {
+        document.getElementById("demo").innerHTML = "<span class = 'coke'>You have clicked " + ans + " times!"
+        document.getElementById(id).style.display = "block";
+        document.getElementById(id).style.margin = "auto";
+    }
+    function hideHero(id) {
+        document.getElementById(id).style.display = "none";
+        ans += 1;
+
     }
 </script>
 <body>
