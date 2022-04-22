@@ -17,17 +17,19 @@
     #iron {
         display: none;
     }
+    #supeg {
+        display: none;
+    }
+    #capm {
+        display: none;
+    }
     #demo {
         text-align: center;
     }
     #demo2 {
         position: absolute;
-        min-width: 600px;
-        max-width: 50%;
-        margin-right: auto;
-        bottom: 80%;
+        float: left;
         left: 25%;
-        z-index: 0;
         
     }
     button {
@@ -59,22 +61,24 @@
         }
     }
     img {
-        width: 150px;
-        height: auto;
+        width: auto;
+        height: 250px;
     }
     .coke {
         position: relative;
     }
 </style>
 <script>
-    let myArray = ["supes", "cap", "bats", "iron"]
-    let [ans, supc, capc, batsc, ironc] = [0, 0, 0, 0, 0];
+    let myArray = ["supes", "cap", "bats", "iron", "supeg", "capm"]
+    let [ans, supc, capc, batsc, ironc, supegc, capmc] = [0, 0, 0, 0, 0, 0, 0];
     function counter() {
         let dec = myArray[Math.floor(Math.random()*myArray.length)];
         document.getElementById("supes").style.display = "none";
         document.getElementById("cap").style.display = "none";
         document.getElementById("bats").style.display = "none";
         document.getElementById("iron").style.display = "none";
+        document.getElementById("supeg").style.display = "none";
+        document.getElementById("capm").style.display = "none";
         ans += 1;
         if (dec == "supes") {
         document.getElementById("demo").innerHTML = "<span class = 'coke'>You have clicked " + ans + " times!"
@@ -96,20 +100,34 @@
             document.getElementById("iron").style.display = "block";
             document.getElementById("iron").style.margin = "auto";
             ironc += 1;
+        } else if (dec === "supeg") {
+            document.getElementById("demo").innerHTML = "<span class = 'coke'>You have clicked " + ans + " times!"
+            document.getElementById("supeg").style.display = "block";
+            document.getElementById("supeg").style.margin = "auto";
+            supegc += 1; 
+        }else if (dec === "capm") {
+            document.getElementById("demo").innerHTML = "<span class = 'coke'>You have clicked " + ans + " times!"
+            document.getElementById("capm").style.display = "block";
+            document.getElementById("capm").style.margin = "auto";
+            capmc += 1;
         }
-        document.getElementById("demo2").innerHTML = "Superman = " + supc + " <br> Captain America = " + capc + " <br> Batman = " + batsc + " <br> Ironman = " + ironc;
+        document.getElementById("demo2").innerHTML = "Superman = " + supc + " <br> Captain America = " + capc + " <br> Batman = " + batsc + " <br> Ironman = " + ironc + " <br> Supergirl = " + supegc + " <br> Captain Marvel = " + capmc;
     }
 </script>
 <body>
+<div>
 <button id ="the-button"onclick="counter();">Click Me!</button>
+<p id="demo2"></p>
+</div>
 <p id="demo"></p>
 <div class="images">
 <img id="supes" src="https://upload.wikimedia.org/wikipedia/en/3/35/Supermanflying.png">
 <img id="cap" src="https://www.ed92.org/wp-content/uploads/2021/06/captain-america-1-450x701.png">
 <img id="bats" src="https://github.com/Allidel85/Allidel85.github.io/blob/main/bats.png?raw=true">
 <img id="iron" src="https://github.com/Allidel85/Allidel85.github.io/blob/main/iron%202.png?raw=true">
+<img id="supeg" src="https://github.com/Allidel85/Allidel85.github.io/blob/main/supergirl.png?raw=true">
+<img id="capm" src="https://github.com/Allidel85/Allidel85.github.io/blob/main/capm.png?raw=true">
 </div>
-<p id="demo2"></p>
 </script>
 </body>
 </html>
