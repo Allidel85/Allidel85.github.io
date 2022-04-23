@@ -103,7 +103,11 @@
         const hero = heroes.find(hero => hero.name === dec)
         heroElement.src = hero.image;
         heroElement.style.opacity = hero.opacity;
-        hero.opacity += .1;
+        if (hero.opacity < 1) {
+            hero.opacity += 0.1;
+        } else {
+            hero.opacity = 0.1;
+        }
         hero.counter += 1;
         clickElement.innerHTML = "You have clicked " + ans + " times!";
         createCounters(dcHeroes, dcElement);
