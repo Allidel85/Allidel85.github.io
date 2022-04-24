@@ -129,6 +129,7 @@
     const marvelBrandElement = document.getElementById("marvel-brand-counter");
     const dcBrandElement = document.getElementById("dc-brand-counter");
     const autoButton = document.getElementById("auto-button");
+    const clickButton = document.getElementById("the-button");
     let clicked = false;
     let dec = "Superman"
     let ans = 0;
@@ -165,12 +166,12 @@
     function autoAnimate() {
         if (clicked == false) {
             intervalId = setInterval(counter, 500);
-            autoButton.style.animation = "auto-press .5s linear infinite";
+            clickButton.style.animation = "auto-press .5s linear infinite";
             clicked = true;
             autoButton.value = "Auto Click Off"
         } else {
             clearInterval(intervalId);
-            autoButton.style.animationPlayState = "paused";
+            clickButton.style.animationPlayState = "paused";
             clicked = false;
             autoButton.value = "Auto Click On"
         }
