@@ -85,7 +85,7 @@
 <body>
 <div>
 <button id ="the-button"onclick="counter();">Click Me!</button>
-<button id ="auto-button"onclick="autoAnimate(); intervalId = setInterval(counter, 1000);">Auto Click</button>
+<button id ="auto-button"onclick="autoAnimate(); intervalId = setInterval(counter, 500);">Auto Click</button>
 <button id="auto-stop"onclick="stopAnimate(); clearInterval(intervalId)";>Stop Auto Click</button>
 </div>
 <div id="counters">
@@ -145,7 +145,7 @@
         })
     }
     function autoAnimate() {
-        autoButton.style.animation = "auto-press 1s linear infinite";
+        autoButton.style.animation = "auto-press .5s linear infinite";
     }
     function stopAnimate () {
         autoButton.style.animationPlayState = "paused";
