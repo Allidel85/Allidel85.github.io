@@ -169,11 +169,13 @@
             clickButton.style.animation = "auto-press .5s linear infinite";
             clicked = true;
             autoButton.value = "Auto Click Off"
+            clickButton.onclick = "";
         } else {
             clearInterval(intervalId);
             clickButton.style.animationPlayState = "paused";
             clicked = false;
             autoButton.value = "Auto Click On"
+            clickButton.onclick = counter;
         }
     }
 </script>
