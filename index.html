@@ -71,6 +71,8 @@
 <body>
 <div>
 <button id ="the-button"onclick="counter();">Click Me!</button>
+<button id ="auto-button"onclick="intervalId = setInterval(counter, 1000);">Auto Click</button>
+<button id="auto-stop"onclick="clearInterval(intervalId)";>Stop Auto Click</button>
 </div>
 <div id="counters">
 <p id ="click-counter"></p>
