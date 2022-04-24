@@ -5,7 +5,187 @@
     #hero-image {
         display: block;
         margin: auto;
+    }<!DOCTYPE html>
+<html>
+<head>
+<style>
+    #hero-image {
+        display: block;
+        margin: auto;
     }
+    #click-counter {
+        text-align: center;
+    }
+    #dc-counter {
+        position: absolute;
+        float: left;
+        left: 25%;  
+        background-color: rgb(255, 249, 179);
+    }
+    #marvel-counter {
+        position: absolute;
+        float: right;
+        right: 25%;
+        background-color: rgb(255, 249, 179);
+    }
+    #marvel-brand-counter {
+        position: relative;
+        top: 350px;
+        text-align: center;
+
+    }
+    #dc-brand-counter {
+        position: relative;
+        top: 350px;
+        text-align: center;
+    }
+    button {
+        margin-right: 15vw;
+        width: 25vw;
+        background-color: lightblue;  
+        color :black;  
+        font-size: 3vw; 
+        border-radius:10px;
+        border-color: black; 
+        cursor: pointer;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+
+    }
+    button:active {
+        transform: scale(0.98);
+        box-shadow: 0 8px 18px rgba(0,0,0,0.19), 0 4px 4px rgba(0,0,0,0.23);
+        animation-name: name-color;
+        animation-duration: 200ms;
+        animation-fill-mode: forwards;
+    }
+    #auto-button:active {
+        transform: scale(0.98);
+        box-shadow: 0 8px 18px rgba(0,0,0,0.19), 0 4px 4px rgba(0,0,0,0.23);
+        animation-name: name-color;
+        animation-duration: 200ms;
+        animation-fill-mode: forwards;
+    }
+    #auto-button {
+        width: 25vw;
+        background-color: lightblue;  
+        color :black;  
+        font-size: 3vw; 
+        border-radius:10px;
+        border-color: black; 
+        cursor: pointer;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    }
+    .buttons {
+        display: flex;
+    }
+    .center-buttons {
+        justify-content: center;
+    }
+    @keyframes auto-press {
+        100% {
+            transform: scale(0.98);
+            box-shadow: 0 8px 18px rgba(0,0,0,0.19), 0 4px 4px rgba(0,0,0,0.23);
+        }
+    }
+    #auto-button:hover {
+        animation-name: button-color;
+        animation-duration: 500ms;
+        animation-fill-mode: forwards;
+    }
+    button:hover {
+        animation-name: button-color;
+        animation-duration: 500ms;
+        animation-fill-mode: forwards;
+    }
+    @keyframes button-color {
+        100% {
+            background-color: red;
+        }
+    }
+    img {
+        width: auto;
+        height: 250px;
+    }
+</style>
+<body>
+<div class="buttons center-buttons">
+<button id ="the-button"onclick="counter();">Click Me!</button>
+<input type="button" id ="auto-button" onclick="autoAnimate();" value="Auto Click On"></button>
+</div>
+<div id="counters">
+<p id ="click-counter"></p>
+<p id="dc-counter"></p>
+<p id="marvel-counter"></p>
+<p id="marvel-brand-counter"></p>
+<p id="dc-brand-counter"></p>
+</div>
+<img id="hero-image" src="">
+<script>
+    const heroes = [{name: "Superman", opacity: 0, counter: 0, brand: "DC", image: "https://upload.wikimedia.org/wikipedia/en/3/35/Supermanflying.png"}, 
+                    {name: "Batman", opacity: 0, counter: 0, brand: "DC", image: "https://github.com/Allidel85/Allidel85.github.io/blob/main/bats.png?raw=true"},
+                    {name: "Supergirl", opacity: 0, counter: 0, brand: "DC", image: "https://raw.githubusercontent.com/Allidel85/Allidel85.github.io/main/supergirl.png"},
+                    {name: "Captain America", opacity: 0, counter: 0, brand: "Marvel", image: "https://www.ed92.org/wp-content/uploads/2021/06/captain-america-1-450x701.png"},
+                    {name: "Ironman", opacity: 0, counter: 0, brand: "Marvel", image: "https://github.com/Allidel85/Allidel85.github.io/blob/main/iron%202.png?raw=true"},
+                    {name: "Captain Marvel", opacity: 0, counter: 0, brand: "Marvel", image: "https://github.com/Allidel85/Allidel85.github.io/blob/main/capm.png?raw=true"}]
+    const dcHeroes = heroes.filter(hero => hero.brand === "DC");
+    const marvelHeroes = heroes.filter(hero => hero.brand === "Marvel");
+    const heroElement = document.getElementById("hero-image");
+    const clickElement = document.getElementById("click-counter");
+    const dcElement = document.getElementById("dc-counter");
+    const marvelElement = document.getElementById("marvel-counter");
+    const marvelBrandElement = document.getElementById("marvel-brand-counter");
+    const dcBrandElement = document.getElementById("dc-brand-counter");
+    const autoButton = document.getElementById("auto-button");
+    let clicked = false;
+    let dec = "Superman"
+    let ans = 0;
+    let [dcTotal, marvTotal] = [0,0];
+    function counter() {
+        dec = heroes[Math.floor(Math.random()*heroes.length)].name;
+        const hero = heroes.find(hero => hero.name === dec)
+        heroElement.src = hero.image;
+        heroElement.style.opacity = hero.opacity;
+        if (hero.opacity < 1) {
+            hero.opacity += 0.1;
+        } else {
+            hero.opacity = 0.1;
+        }
+        hero.counter += 1;
+        clickElement.innerHTML = "You have clicked " + ans + " times!";
+        createCounters(dcHeroes, dcElement);
+        createCounters(marvelHeroes, marvelElement);
+        ans += 1;
+        if (hero.brand === "DC") {
+            dcTotal += 1;
+            dcBrandElement.innerHTML = "DC Total = " + dcTotal;
+        } else {
+            marvTotal +=1;
+            marvelBrandElement.innerHTML = "Marvel Total = " + marvTotal;
+        }
+    }   
+    function createCounters(arr, element) {
+        element.innerHTML = "";
+        arr.forEach(hero => {
+            element.innerHTML = element.innerHTML + hero.name + " = " + hero.counter + "<br>";
+        })
+    }
+    function autoAnimate() {
+        if (clicked == false) {
+            intervalId = setInterval(counter, 500);
+            autoButton.style.animation = "auto-press .5s linear infinite";
+            clicked = true;
+            autoButton.value = "Auto Click Off"
+        } else {
+            clearInterval(intervalId);
+            autoButton.style.animationPlayState = "paused";
+            clicked = false;
+            autoButton.value = "Auto Click On"
+        }
+    }
+</script>
+</body>
+</html>
+
     #click-counter {
         text-align: center;
     }
