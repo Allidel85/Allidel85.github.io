@@ -53,6 +53,20 @@
         animation-duration: 200ms;
         animation-fill-mode: forwards;
     }
+    #auto-button {
+        animation-name: auto-press;
+    }
+    @keyframes auto-press {
+        100% {
+            transform: scale(0.98);
+            box-shadow: 0 8px 18px rgba(0,0,0,0.19), 0 4px 4px rgba(0,0,0,0.23);
+        }
+    }
+    #auto-button:hover {
+        animation-name: button-color;
+        animation-duration: 500ms;
+        animation-fill-mode: forwards;
+    }
     button:hover {
         animation-name: button-color;
         animation-duration: 500ms;
@@ -71,8 +85,8 @@
 <body>
 <div>
 <button id ="the-button"onclick="counter();">Click Me!</button>
-<button id ="auto-button"onclick="intervalId = setInterval(counter, 1000);">Auto Click</button>
-<button id="auto-stop"onclick="clearInterval(intervalId)";>Stop Auto Click</button>
+<button id ="auto-button"onclick="autoAnimate(); intervalId = setInterval(counter, 1000);">Auto Click</button>
+<button id="auto-stop"onclick="stopAnimate(); clearInterval(intervalId)";>Stop Auto Click</button>
 </div>
 <div id="counters">
 <p id ="click-counter"></p>
@@ -97,6 +111,7 @@
     const marvelElement = document.getElementById("marvel-counter");
     const marvelBrandElement = document.getElementById("marvel-brand-counter");
     const dcBrandElement = document.getElementById("dc-brand-counter");
+    const autoButton = document.getElementById("auto-button");
     let dec = "Superman"
     let ans = 0;
     let [dcTotal, marvTotal] = [0,0];
@@ -128,6 +143,12 @@
         arr.forEach(hero => {
             element.innerHTML = element.innerHTML + hero.name + " = " + hero.counter + "<br>";
         })
+    }
+    function autoAnimate() {
+        autoButton.style.animation = "auto-press 1s linear infinite";
+    }
+    function stopAnimate () {
+        autoButton.style.animationPlayState = "paused";
     }
 </script>
 </body>
